@@ -10,7 +10,7 @@ const applicants = require('./routes/applicants');
 app.locals.con = mysql.createConnection({
 		host: "localhost",
 		user: "root",
-		password: "Lollipop0+",
+		password: "gummiworm0",
 		database: "here"
 	});
 
