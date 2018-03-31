@@ -4,7 +4,7 @@
 
 ```git clone https://github.com/MorganTrudeau/react_node_mysql.git```<br />
 ```cd react_node_mysql && npm install```<br />
-```cd client/ && npm install & cd ..```<br />
+```cd client/ && npm install && cd ..```<br />
 ```npm start```<br />
 
 ## MySQL Database structure
