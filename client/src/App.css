@@ -12,12 +12,19 @@
   color: white;
 }
 
-.applicants {
+.body .cell0 {
+  padding: 20px 20px 0px 20px;
+}
+
+.body .cell1 {
+  padding: 20px 20px 0px 20px;
+}
+
+.applicantList {
   border-style: solid;
   border-width: 1px;
   border-color: #f2f2f2;
   border-radius: 5px;
-  width: 700px;
   margin: 0 auto;
 }
 
@@ -30,10 +37,48 @@
 
 #date {
   float: right;
+  font-size: 13px;
 }
 
 #school {
   font-size: 12px;
   color: grey;
   margin-top: 5px;
+}
+
+.applicantForm {
+  display: flex; 
+  justify-content: center;
+}
+
+.applicantForm .labels {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.applicantForm .inputs {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.applicantForm .button {
+  text-align: center;
+  width: 70px;
+}
+
+.applicantForm label {
+  margin: 3px;
+}
+
+.applicantForm input {
+  margin: 3px;
+}
+
+@media only screen and (min-width: 768px) {
+    .body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
 }

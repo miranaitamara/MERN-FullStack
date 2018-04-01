@@ -20,7 +20,7 @@ app.locals.con.connect(err => {
 });
 
 
-app.use('/api/v1/applicants', applicants);
+app.use('/api/v1/applicants/', applicants);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 

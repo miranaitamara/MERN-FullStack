@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-async function callApi() {
-    const response = await fetch('/api/v1/applicants');
+async function getApplicants() {
+    const response = await fetch('/api/v1/applicants/GET');
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
     return body.response;
@@ -30,7 +30,7 @@ class List extends Component {
   }
 
   componentDidMount() {
-    callApi()
+    getApplicants()
       .then(res => {
         console.log(res);
         var newApplicants = [];
@@ -44,7 +44,7 @@ class List extends Component {
 
   render() {
     return (
-      <div className="applicants">
+      <div className="applicantList">
         {this.state.applicants.map((applicant,index) => 
           <div key={ index } className="applicant">
             <div id="date">{ formatDate(applicant.date) }</div>
