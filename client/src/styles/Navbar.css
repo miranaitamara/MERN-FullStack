@@ -1,0 +1,28 @@
+.navbar {
+	background-color: #343844;
+  	color: white;
+	margin: 0px;
+	border-radius: 0px;
+}
+
+.navbar-nav {
+	padding: 0px;
+}
+
+.nav {
+	margin-right: 10px;
+	position: absolute;
+	right: 0;
+}
+
+.nav:hover {
+}
+
+.nav-logo {
+  height: 48px;
+}
+
+.nav-header {
+	position: absolute;
+	left: 0;
+}

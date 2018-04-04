@@ -1,9 +1,12 @@
 const mysql = require('mysql');
 const express = require('express');
+const path = require('path');
 const app = express();
 const port = process.env.PORT || 5000;
 
 // Routes
+const campaigns = require('./routes/campaigns');
+const positions = require('./routes/positions');
 const applicants = require('./routes/applicants');
 
 // Connect to MySQL
@@ -19,27 +22,20 @@ app.locals.con.connect(err => {
 	console.log("Connected to MySQL");
 });
 
+// Console.log req info
+app.use(function(req,res,next) {
+	console.log(`${ req.method } request for '${ req.url }'`);
+	next();
+});
 
+app.use('/api/v1/campaigns/', campaigns);
+app.use('/api/v1/positions/', positions);
 app.use('/api/v1/applicants/', applicants);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
-// var con = mysql.createConnection({
-// 	host: "localhost",
-// 	user: "root",
-// 	password: "Lollipop0+",
-// 	database: "here"
-// });
+// Production
 
-// con.connect(err => {
-// 	if(err) {
-// 		console.log(err);
-// 	}
-// 	console.log("Connected!");
-// 	con.query(sql, (err, result) => {
-//     if (err) throw err;
-//     result.forEach(applicant => {
-// 		console.log(applicant.id + " " + applicant.name);
-//     });
-//   });
-// });
+// app.use(express.static(path.join(__dirname, './client/build')));
+
+// app.get('/', (req, res) => res.render('index'));

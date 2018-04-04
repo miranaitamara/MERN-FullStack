@@ -1,0 +1,28 @@
+.cell0 {
+  padding: 20px;
+  display: flex;
+}
+
+.cell1 {
+	display: grid;
+  /*padding: 40px 20px 40px 20px;*/
+}
+
+.campaignSelect {
+	margin-bottom: 20px;
+}
+
+.positionTable {
+	padding: 0px 20px 20px 20px;
+}
+
+.applicantTable {
+	padding: 0px 20px;
+}
+
+@media only screen and (min-width: 768px) {
+    .cell1 {
+      display: grid;
+      grid-template-columns: 1.5fr 2.5fr;
+    }
+}
