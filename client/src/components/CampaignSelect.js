@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import AddCampaignModal from './AddCampaignModal';
 import {getCampaigns} from '../functions/API';
 
 const FormControl = require('react-bootstrap/lib/FormControl');
@@ -38,19 +37,19 @@ class CampaignSelect extends Component {
 
   render() {
     return (
-        <div className="home">
+        <div className="campaignSelect">
         	<ControlLabel>Campaign</ControlLabel>
         	<FormControl componentClass="select" placeholder="select" onChange={this.handleChange}>
         		<option value="default">...</option>
-        		<option value="add">Add Campaign</option>
 		        {this.state.campaigns.map((campaign, index) => 
 		      		<option key={index} value={campaign.campaign_id} >{ campaign.name }</option>
 		      	)}
 		    </FormControl>
-		    <AddCampaignModal show={ this.state.show } handleClose={ show => this.handleClose(show) } />
         </div>
     );
   }
 }
 
 export default CampaignSelect;
+
+// <option value="add">Add Campaign</option>

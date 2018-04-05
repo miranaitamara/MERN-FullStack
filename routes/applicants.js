@@ -11,6 +11,7 @@ router.use(function(req,res,next) {
 	next();
 });
 
+// Return all applicants
 router.get('/GET', function(req, res, next) {
 	req.app.locals.con.query('SELECT * FROM applicant', (err, results, fields) => {
 		if(err) {
@@ -20,22 +21,32 @@ router.get('/GET', function(req, res, next) {
 	});
 });
 
+// Create new applicant and application
 router.post('/POST', function(req, res, next) {
-	var applicant = req.body;
-	var first_name = applicant.first_name;
-	var last_name = applicant.last_name;
-	var school = applicant.school;
+	const applicant = req.body;
+	const first_name = applicant.first_name;
+	const last_name = applicant.last_name;
+	const school = applicant.school;
+	const campaign_id = applicant.campaign_id;
+	const position_id = applicant.position_id;
+
 	req.app.locals.con.query(
 		`INSERT INTO applicant VALUES(NULL, '${ first_name }', '${ last_name }', '${ school }', NOW());`, (err, results, fields) => {
 		if(err) {
 			console.log(err);
 		}
-		res.send(JSON.stringify({"status": 200, "redirect": results}));
+		console.log(`Creating application for applicant ${results.insertId}`);
+		req.app.locals.con.query(
+			`INSERT INTO application VALUES(${ results.insertId }, ${ position_id }, ${ campaign_id });`, (err, results, fields) => {
+			if(err) {
+				console.log(err);
+			}
+		});
 	});
 });
 
+// Select all applicants for a specific position
 router.get('/:position_id', function(req, res, next) {
-	console.log(req.params.position_id);
 	req.app.locals.con.query(`SELECT * FROM applicant WHERE EXISTS (SELECT * FROM application WHERE applicant.applicant_id = application.applicant_id AND application.position_id = ${ req.params.position_id });`, (err, results, fields) => {
 		if(err) {
 			console.log(err);

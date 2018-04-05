@@ -1,0 +1,19 @@
+.position {
+	padding: 0px 20px;
+}
+
+.position .cell0 {
+	margin: 20px 0px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.position .cell1 {
+	margin: 20px 0px;
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+}
+
+.position .applicantTable {
+	margin: 20px 0px;
+}

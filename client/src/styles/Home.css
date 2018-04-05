@@ -1,28 +1,42 @@
-.cell0 {
-  padding: 20px;
-  display: flex;
+.home .cell0 {
+	padding: 20px;
+
 }
 
-.cell1 {
-	display: grid;
-  /*padding: 40px 20px 40px 20px;*/
+.home .cell1 {
+	padding: 49px 20px;
 }
 
-.campaignSelect {
-	margin-bottom: 20px;
+.home .addApplicantModal {
+  margin-bottom: 20px;
 }
 
-.positionTable {
-	padding: 0px 20px 20px 20px;
+.home .addPositionModal {
+  margin-top: 20px;
 }
 
-.applicantTable {
-	padding: 0px 20px;
+.home .campaignSelect {
+	display: inline-block;
 }
+
+.home .addCampaignModal {
+  display: inline-block;
+  margin-left: 20px;
+}
+
 
 @media only screen and (min-width: 768px) {
-    .cell1 {
-      display: grid;
-      grid-template-columns: 1.5fr 2.5fr;
-    }
+  	.home {
+   	 	display: grid;
+   		grid-template-columns: 1fr 1.5fr;
+ 	}
+
+  	.home .cell1 {
+  		padding-top: 49px;
+  	}
+
+  	.home .addApplicantModal {
+	  float: right;
+	}
+
 }

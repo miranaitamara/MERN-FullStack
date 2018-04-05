@@ -6,14 +6,26 @@ export function validateCampaignForm(name) {
 
 // AddPositionModal
 
-export function validatePositionForm(name, start_date, end_date, openings) {
-  return (name.length > 0 && start_date.length > 0 && end_date.length > 0, openings.length > 0);
+export function validatePositionForm(name, start_date, end_date, openings, description) {
+  return (
+    name.length > 0 &&
+    start_date.length > 0 &&
+    end_date.length > 0 && 
+    openings.length > 0 &&
+    description.length > 0
+  );
 }
 
 // ApplicantForm
 
-export function validateApplicantForm(firstName, lastName, school) {
-  return (firstName.length > 0 && lastName.length > 0 && school.length > 0);
+export function validateApplicantForm(firstName, lastName, school, position_id, campaign_id) {
+  return (
+    firstName.length > 0 &&
+    lastName.length > 0 && 
+    school.length > 0 && 
+    position_id.length > 0 &&
+    campaign_id.length > 0
+  );
 }
 
 // ApplicantTable

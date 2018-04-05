@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import '../styles/component.css';
 
 const Radio = require('react-bootstrap/lib/Radio');
@@ -41,7 +42,11 @@ class PositionTable extends Component {
                       onClick={ this.positionSelected }>
                     </Radio>
                   </td>
-                  <td id="position" value={ position.name }>{ position.name}</td>
+                  <td id="position" value={ position.name }>
+                    <Link to={{pathname: '/position', state: position }}>
+                      { position.name}
+                    </Link>
+                  </td>
                   <td id="openings">{ position.openings }</td>
                   <td id="status">{ position.status }</td>
                 </tr>

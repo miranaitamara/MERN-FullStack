@@ -15,14 +15,8 @@
 	right: 0;
 }
 
-.nav:hover {
-}
-
 .nav-logo {
   height: 48px;
-}
-
-.nav-header {
-	position: absolute;
-	left: 0;
+  position: absolute;
+  left:0;
 }

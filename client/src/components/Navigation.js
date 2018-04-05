@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import logo from '../images/here_logo.png';
 import '../styles/Navbar.css';
 
@@ -12,8 +13,10 @@ class Navigation extends Component {
   render() {
     return(
       <Navbar inverse collapseOnSelect>
-        <Navbar.Header className="nav-header">
-          <img src={logo} className="nav-logo" alt="logo" />
+        <Navbar.Header>
+          <Link to="/"> 
+            <img src={logo} className="nav-logo" alt="logo" />
+          </Link>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>

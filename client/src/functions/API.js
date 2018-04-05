@@ -1,28 +1,28 @@
 // AddCampaignModal
 
 export async function addCampaign(name) {
-  console.log(`posting ${name}`)
-  return fetch('api/v1/campaigns/POST', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      name: name
-    })
-  })
-  .then(function(res, err) {
-    console.log(res);
-    console.log(err);
-  })
+  try {
+    fetch('api/v1/campaigns/POST', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: name
+      })
+    });
+  }
+  catch(err) {
+    console.log(err)
+  }
 }
 
 // AddPositionModal
 
-export async function addPosition(name, start_date, end_date, openings, campaign_id) {
+export async function addPosition(name, start_date, end_date, openings, description, campaign_id) {
   try {
-    const response = await fetch('api/v1/positions/POST', {
+    fetch('api/v1/positions/POST', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -33,7 +33,8 @@ export async function addPosition(name, start_date, end_date, openings, campaign
         start_date: start_date,
         end_date: end_date,
         openings: openings,
-        campaign_id: campaign_id
+        campaign_id: campaign_id,
+        description: description
       })
     });
   }
@@ -44,19 +45,26 @@ export async function addPosition(name, start_date, end_date, openings, campaign
 
 // ApplicantForm
 
-export async function createApplicant(first_name, last_name, school) {
-  return fetch('api/v1/applicants/POST', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      first_name: first_name,
-      last_name: last_name,
-      school: school
-    })
-  });
+export async function addApplicant(first_name, last_name, school, campaign_id, position_id) {
+  try {
+    fetch('api/v1/applicants/POST', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        first_name: first_name,
+        last_name: last_name,
+        school: school,
+        campaign_id: campaign_id,
+        position_id: position_id
+      })
+    });
+  }
+  catch(err) {
+    console.log(err);
+  }
 }
 
 // ApplicantTable

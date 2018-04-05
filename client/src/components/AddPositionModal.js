@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {addPosition} from '../functions/API';
 import {validatePositionForm} from '../functions/Helper';
+import '../styles/component.css';
 
 const Button = require('react-bootstrap/lib/Button');
 const Modal = require('react-bootstrap/lib/Modal');
@@ -17,6 +18,7 @@ class AddPositionModal extends Component {
       start_date: '',
       end_date: '',
       openings: '',
+      description: '',
       alert: 'none'
     };
 
@@ -52,16 +54,17 @@ class AddPositionModal extends Component {
     const start_date = this.state.start_date;
     const end_date = this.state.end_date;
     const openings = this.state.openings;
+    const description = this.state.description;
     const campaign_id = this.props.selectedCampaign;
     // Check for empty inputs
-    if(validatePositionForm(name, start_date, end_date, openings)) {
-      addPosition(name, start_date, end_date, openings, campaign_id);
+    if(validatePositionForm(name, start_date, end_date, openings, description)) {
+      addPosition(name, start_date, end_date, openings, description, campaign_id);
     }
   }
 
   render() {
     return (
-      <div>
+      <div className="addPositionModal">
         <Button bsSize="small" onClick={this.handleShow}>
           ADD POSITION
         </Button>
@@ -76,15 +79,15 @@ class AddPositionModal extends Component {
 
           <form onSubmit={this.handleSubmit}>
             <Modal.Body>
-              <div className="addPositionForm">
+              <div className="form">
                 <ControlLabel>Position Name</ControlLabel>
                 <FormControl componentClass="input" name="name" value={this.state.name} onChange={this.handleChange} />
-                <ControlLabel>Start Date</ControlLabel>
-                <FormControl componentClass="input" name="start_date" value={this.state.start_date} onChange={this.handleChange} />
                 <ControlLabel>End Date</ControlLabel>
                 <FormControl componentClass="input" name="end_date" value={this.state.end_date} onChange={this.handleChange} />
                 <ControlLabel>Openings</ControlLabel>
                 <FormControl componentClass="input" name="openings" value={this.state.openings} onChange={this.handleChange} />
+                <ControlLabel>Description</ControlLabel>
+                <FormControl componentClass="textArea" name="description" value={this.state.description} onChange={this.handleChange} />
               </div>
             </Modal.Body>
         

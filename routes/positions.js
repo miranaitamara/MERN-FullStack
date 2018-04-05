@@ -11,26 +11,38 @@ router.use(function(req,res,next) {
 	next();
 });
 
+// Select positions for specific campaign
 router.get('/:campaign_id', function(req, res, next) {
 	req.app.locals.con.query(`SELECT * FROM position WHERE campaign_id = ${req.params.campaign_id};`, (err, results, fields) => {
-		if (err) console.log(err);
+		if(err) {
+			console.log(err);
+		}
 		res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
 	});
 });
 
+// Add new position for specific campaign
 router.post('/POST', function(req, res, next) {
 	const position = req.body;
 	const name = position.name;
 	const start_date = position.start_date;
 	const end_date = position.end_date;
 	const openings = position.openings;
+	const description = position.description;
 	const campaign_id = position.campaign_id;
 	req.app.locals.con.query(
-		`INSERT INTO position VALUES('${ name }', NOW(), '${ end_date }', ${ openings }, TRUE, NULL, ${ campaign_id });`, (err, results, fields) => {
-		if (err) {
-			console.log(err);
-		}
-		res.send(JSON.stringify({"status": 200, "redirect": results}));
+		`INSERT INTO position VALUES(
+			'${ name }', NOW(),
+			'${ end_date }',
+			${ openings },
+			TRUE,
+			NULL,
+			${ campaign_id },
+			'${ description }');`,
+		(err, results, fields) => {
+			if (err) {
+				console.log(err);
+			}
 	});
 });
 

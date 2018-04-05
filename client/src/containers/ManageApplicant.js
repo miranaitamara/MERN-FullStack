@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import '../styles/Home.css';
 import CampaignSelect from '../components/CampaignSelect';
-import AddCampaignModal from '../components/AddCampaignModal';
 import ApplicantTable from '../components/ApplicantTable';
 import PositionTable from '../components/PositionTable';
 import AddPositionModal from '../components/AddPositionModal';
-import AddApplicantModal from '../components/AddApplicantModal';
 import {getPositions} from '../functions/API';
 import {getApplicants} from '../functions/API';
 
@@ -27,7 +25,7 @@ class Home extends Component {
       this.setState({ selectedCampaign:selectedCampaign });
       getPositions(selectedCampaign).then(positions => {
         if(positions) {
-          this.setState({ positions:positions, applicants: [] });
+          this.setState({ positions:positions });
         }
       })
       .catch(err => {
@@ -56,24 +54,25 @@ class Home extends Component {
     return (
         <div className="home">
           <div className="cell0">
-            <CampaignSelect
-              className="campaignSelect"
-              campaignSelected={ (selectedCampaign) => this.campaignSelected(selectedCampaign) }
-            />
-            <AddCampaignModal className="addCampaignModal" />
-            <PositionTable 
-              positionSelected={ (selectedPosition) => this.positionSelected(selectedPosition) } 
-              positions={ this.state.positions } 
-            />
-            <AddPositionModal selectedCampaign={ this.state.selectedCampaign } />
+              <CampaignSelect
+                campaignSelected={ (selectedCampaign) => this.campaignSelected(selectedCampaign) }
+              />
           </div>
           <div className="cell1">
-            <AddApplicantModal selectedCampaign={ this.state.selectedCampaign } />
-            <ApplicantTable applicants={ this.state.applicants } />
+            <div className="positionTable">
+              <PositionTable 
+                positionSelected={ (selectedPosition) => this.positionSelected(selectedPosition) } 
+                positions={ this.state.positions } 
+              />
+              <AddPositionModal selectedCampaign={ this.state.selectedCampaign } />
+            </div>
+            <div className="applicantTable">
+              <ApplicantTable applicants={ this.state.applicants } />
+            </div>
           </div>  
         </div>
     );
   }
 }
 
-export default Home;
+export default ManageApplicants;

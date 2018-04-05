@@ -1,9 +1,8 @@
-/* Table */
-
 .table {
   border-width: 1px;
   border-color: #d9d9d9;
   border-style: solid;
+  margin: 10px 0px;
 }
 
 .table-header {
@@ -11,59 +10,50 @@
 	background-color: #343844;
 }
 
-/* AddPositionModal*/
+.form {
+  padding: 10px 20px 20px 60px;
+}
+
+.form input {
+  width: 250px;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+/* AddApplicantModal */
+
+/* AddCampaignModal */
+
+.addCampaignButton {
+  /*background-color: #45DCD0;
+  color: white;
+*/
+}
+
+/* AddPositionModal */
+
+.addPositionModal {
+  margin-top: 10px 0px;
+}
 
 #positionAlert {
   margin-top: 10px;
 }
 
-/* Applicant Form */
+/* CampaignSelect */
 
-.applicantForm {
-  display: flex; 
-  justify-content: center;
+.campaignSelect {
+  width: 150px;
+  margin-bottom: 10px;
 }
 
-.applicantForm .labels {
-  display: flex;
-  flex-direction: column;
-  text-align: right;
-}
+/* PositionSelect */
 
-.applicantForm .inputs {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-}
-
-.applicantForm .button {
-  text-align: center;
-  width: 70px;
-}
-
-.applicantForm label {
-  margin: 3px;
-}
-
-.applicantForm input {
-  margin: 3px;
-}
-
-/* AddPositionModal */
-
-.addPositionForm {
-	display: grid;
-	grid-template-columns: 1fr 3fr;
-	padding: 10px;
-}
-
-.addPositionForm .button {
-	margin: 0 auto;
-}
-
-.addPositionForm input {
-	width: 200px;
-	margin-bottom: 5px;
+.positionSelect {
+  margin-bottom: 10px;
+  width: 150px;
 }
 
 /* PositionTable */
