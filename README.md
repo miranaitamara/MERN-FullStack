@@ -30,6 +30,7 @@
 | status      | tinyint(1)       | NO   |     | NULL    |                |
 | position_id | int(11)          | NO   | PRI | NULL    | auto_increment |
 | campaign_id | int(11)          | YES  | MUL | NULL    |                |
+| description | varchar(200)     | YES  |     | NULL    |                |
 +-------------+------------------+------+-----+---------+----------------+
 ```
 ### Application
