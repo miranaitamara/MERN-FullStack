@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import Navigation from './components/Navigation';
-import Main from './containers/Main';
+import SecreqSelect from './components/secreq';
+//import Navigation from './components/Navigation';
+//import Main from './containers/Main';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Navigation />
-        <Main />
+       {/*  <Navigation />
+        <Main />*/}
+        <SecreqSelect/>
       </div>
     );
   }

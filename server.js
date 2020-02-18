@@ -5,16 +5,17 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // Routes
-const campaigns = require('./routes/campaigns');
-const positions = require('./routes/positions');
-const applicants = require('./routes/applicants');
+const secreq = require('./routes/secreq');
+//const campaigns = require('./routes/campaigns');
+//const positions = require('./routes/positions');
+//const applicants = require('./routes/applicants');
 
 // Connect to MySQL
 app.locals.con = mysql.createConnection({
 		host: "localhost",
 		user: "root",
-		password: "gummiworm0",
-		database: "here"
+		password: "",
+		database: "redalertlabs"
 	});
 
 app.locals.con.connect(err => {
@@ -28,11 +29,16 @@ app.use(function(req,res,next) {
 	next();
 });
 
-app.use('/api/v1/campaigns/', campaigns);
-app.use('/api/v1/positions/', positions);
-app.use('/api/v1/applicants/', applicants);
+app.use('/api/v1/secreq/', secreq);
+
+//app.use('/api/v1/campaigns/', campaigns);
+//app.use('/api/v1/positions/', positions);
+//app.use('/api/v1/applicants/', applicants);
+
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
+
+
 
 // Production
 

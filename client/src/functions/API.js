@@ -1,5 +1,5 @@
 // AddCampaignModal
-
+/*
 export async function addCampaign(name) {
   try {
     fetch('api/v1/campaigns/POST', {
@@ -97,10 +97,26 @@ export async function getCampaigns() {
   catch(err) {
     console.log(err);
   };
+}*/
+// CampaignSelect
+
+export async function getSecreq() {
+  try{
+    const response = await fetch('/api/v1/secreq/GET');
+    const body = await response.json();
+    if(response.status !== 200) {
+      console.log(Error(body.message));
+    }
+    return body.response;
+  }
+  catch(err) {
+    console.log(err);
+  };
 }
 
-// Home
 
+// Home
+/*
 export async function getPositions(campaign) {
   try {
     const response = await fetch(`/api/v1/positions/${campaign}`);
@@ -111,4 +127,4 @@ export async function getPositions(campaign) {
   catch(err) {
     console.log(err);
   }
-}
+}*/

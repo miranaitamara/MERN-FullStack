@@ -21,6 +21,9 @@ router.get('/:campaign_id', function(req, res, next) {
 	});
 });
 
+
+
+app.post
 // Add new position for specific campaign
 router.post('/POST', function(req, res, next) {
 	const position = req.body;
